@@ -48,6 +48,23 @@
 			return 1;
 		}
 
+		function calTemp(t,u){
+			var t1;
+			var u1;
+			   
+			if(u == "F"){
+				t1 = t * (9/5) + 32;
+				u1 = "Fahrenheit";
+			}else if(u == "K"){
+				t1 =  t + 273.15;
+				u1 = "Réaumur";
+			}else if(u == "R"){
+				t1 = t * (4/5);
+				u1 = "Kelvin";
+			}
+			alert("Temperature is "+t1+" in "+u1);
+		}
+
 	    $(document).ready(function(){
 			$("button").click(function(){
 			   var t = $('#temp').val();//celsius
@@ -55,21 +72,8 @@
 			   
 			   if(validateTemp(t) ==0) return;
 			   
-			   var t1;
-			   var u1;
+			   calTemp(t,u);
 			   
-			   if(u == "F"){
-					t1 = t * (9/5) + 32;
-					u1 = "Fahrenheit";
-			   }else if(u == "K"){
-					t1 =  t + 273.15;
-					u1 = "Réaumur";
-			   }else if(u == "R"){
-					t1 = t * (4/5);
-					u1 = "Kelvin";
-			   }
-			   
-			   alert("Temperature is "+t1+" in "+u1);
 			});
 		});
 	</script>
